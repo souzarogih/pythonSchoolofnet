@@ -17,9 +17,19 @@ def redirected():
 
 @app.route('/request', methods=['POST'])
 def request_data():
-    # request.form['nome']
+    print(request.form['name']) # pegar dados do formulario
     person = request.args.get('person')
+    # print("req:", person) # olha o conteudo do person
+    # print("req", request.args) # captura todos os dados da requisição
+
+    # pegar dados da requisição
+    # print(request.method)
+    # print(request)
+    # print(request.headers.get('User-Agent'))
+    # print(request.headers)
+    print(request.path)
     return 'Hello my name is %s and I have %s years old' % (request.form['name'], request.form['age'])
+    # return "salvo"
 
 
 @app.route('/request/v2', methods=['POST'])
